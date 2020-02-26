@@ -1,0 +1,43 @@
+{
+  "manifest_version": 2,
+
+  "name": "Wave Plus",
+  "description": "Add-ons to Wave",
+  "version": "1.0",
+  "icons": {
+    "256": "icon/256.png",
+    "128": "icon/128.png",
+    "32": "icon/32.png",
+    "16": "icon/16.png"
+  },
+  
+  "page_action": {
+    "default_icon": "icon/16.png",
+    "default_popup": "popup/index.html",
+    "default_title": "Wave Plus"
+  },
+  "background": {
+    "scripts": ["background/index.js"],
+    "persistent": true
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://*.waveapps.com/*"],
+      "js": ["content/inject.js"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    "vendor/*",
+    "inject/*",
+    "img/*"
+  ],
+
+  "permissions": [
+    "https://*.waveapps.com/*",
+    "storage",
+    "webRequest"
+  ]
+
+}

@@ -1,0 +1,227 @@
+.contemporary-template .wv-table__header .wv-table__cell, .contemporary-template .wv-table__header .wv-table__cell--amount {
+  text-transform: inherit;
+  font-weight: 600;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #fff;
+}
+.wv-table__cell .middle-align {
+  text-align: center;
+}
+.contemporary-template, .contemporary-template .wv-heading--subtitle, .contemporary-template .wv-heading--title, .contemporary-template .wv-table__cell, .contemporary-template .wv-table__cell--amount, .contemporary-template .wv-text, .contemporary-template .wv-text--strong {
+  font-family: Helvetica, Arial, sans-serif;
+}
+.contemporary-template {
+  font-size: 16px;
+  position: relative;
+  padding: 16px;
+  min-height: 1024px;
+  box-sizing: border-box;
+  border: 1px solid #dee1e2;
+  background: #fff;
+}
+.contemporary-template .wv-table__cell, .contemporary-template .wv-table__cell--amount, .contemporary-template .wv-text, .contemporary-template .wv-text--strong {
+  font-size: 16px;
+}
+.contemporary-template .wv-heading--title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 42px;
+  font-weight: 300;
+}
+.contemporary-template .wv-heading--subtitle {
+  word-wrap: break-word;
+  color: gray;
+  font-size: 16px;
+  margin-top: 0;
+  line-height: 20px;
+}
+.contemporary-template .address {
+  margin-top: 10px;
+}
+.contemporary-template .address__field .wv-text {
+  line-height: 20px;
+}
+.contemporary-template .wv-table, .contemporary-template .wv-text {
+  font-size: 16px;
+}
+.contemporary-template .wv-table__cell {
+  padding-left: 15px;
+  padding-right: 15px;
+  vertical-align: top;
+  white-space: pre-line;
+  word-break: break-word;
+}
+.contemporary-template .wv-table__cell:first-child {
+  padding-left: 30px;
+}
+.contemporary-template .wv-table__cell--smaller {
+  width: 105px;
+  white-space: pre-line;
+}
+.contemporary-template .wv-table__cell--amount {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 125px;
+  vertical-align: top;
+  white-space: pre-line;
+}
+.contemporary-template .wv-table__cell--amount:last-child {
+  padding-right: 30px;
+}
+.contemporary-template .wv-table__row {
+  border-bottom: inherit;
+}
+.contemporary-template .wv-table__row .wv-table__cell--nested {
+  color: #4c5357;
+  font-size: 14px;
+}
+.contemporary-template__divider--bold .wv-divider {
+  border-width: 3px;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.contemporary-template__divider--small-margin .wv-divider {
+  margin: 12px auto;
+}
+.contemporary-template__divider--full-width .wv-divider {
+  margin-left: -16px;
+  margin-right: -16px;
+}
+.contemporary-template__header {
+  display: flex;
+  margin: 25px 14px 0;
+  justify-content: space-between;
+}
+.contemporary-template__header__logo img {
+  max-height: 200px;
+  max-width: 300px;
+}
+.contemporary-template__header__info {
+  text-align: right;
+  width: 442px;
+}
+.contemporary-template .invoice-template-details .wv-table__row--header .wv-table__cell:first-child {
+  min-width: 125px;
+}
+.contemporary-template__metadata {
+  margin-left: 14px;
+  margin-right: -16px;
+  display: flex;
+}
+.contemporary-template__metadata__customer {
+  flex-grow: 1;
+  display: flex;
+  width: 40%;
+}
+.contemporary-template__metadata__customer__wrapper {
+  display: flex;
+}
+.contemporary-template__metadata__customer--billing {
+  flex-grow: 1;
+  padding-right: 10px;
+}
+.contemporary-template__metadata__customer--shipping {
+  flex-grow: 3;
+  padding-right: 10px;
+}
+.contemporary-template__metadata .invoice-template-details {
+  margin-top: -5px;
+}
+.contemporary-template__metadata .invoice-template-details .wv-table__row:hover {
+  background: none;
+}
+.contemporary-template__metadata .invoice-template-details .wv-table__cell {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.contemporary-template__metadata .invoice-template-details .wv-table__cell:first-child {
+  text-align: right;
+}
+.contemporary-template__metadata .invoice-template-details .wv-table__cell:last-child {
+  padding-left: 0;
+}
+.contemporary-template__metadata .invoice-template-details .wv-table__row:last-child {
+  background: #f4f5f5;
+}
+.contemporary-template__metadata .invoice-template-details .wv-table__row:last-child .wv-table__cell {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.contemporary-template__metadata .invoice-template-details .wv-table__row:last-child .wv-table__cell:nth-child(2) {
+  padding-right: 30px;
+  min-width: 125px;
+}
+.contemporary-template__metadata .invoice-template-details .wv-table__row:last-child .wv-table__cell:nth-child(2) .wv-text--body {
+  font-weight: 600;
+}
+.contemporary-template__metadata .wv-text--body {
+  font-size:18px;
+  line-height: 22px;
+}
+.contemporary-template__metadata .wv-text--strong {
+  font-size:18px;
+  line-height: 22px;
+}
+.contemporary-template__metadata {
+  margin-top: 20px;
+}
+.contemporary-template__items {
+  margin-top: 26px;
+  margin-right: -16px;
+  margin-left: -16px;
+}
+.contemporary-template__items .no-items-message, .contemporary-template__items__column--center {
+  text-align: center;
+}
+.contemporary-template__totals {
+  display: flex;
+  margin-bottom: 35px;
+  margin-left: -16px;
+  margin-right: -16px;
+}
+.contemporary-template__totals__blank {
+  flex-grow: 5;
+}
+.contemporary-template__totals__amounts {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  margin-right: 30px;
+}
+.contemporary-template__totals__amounts__line {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.contemporary-template__totals__amounts__line__amount {
+  margin-left: 30px;
+  min-width: 125px;
+}
+.contemporary-template__totals__amounts__line .wv-text--strong {
+  font-size: 18px;
+}
+.contemporary-template__totals__amounts__line .wv-text.wv-text--body {
+  font-size: 18px;
+  line-height: 22px;
+}
+.contemporary-template__memo {
+  margin: 0 14px 35px;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+.contemporary-template__memo > span {
+  margin: 8px 0;
+  display: block;
+}
+.contemporary-template__footer .wv-text.wv-text--hint {
+  margin: 0 14px 15px;
+  text-align: center;
+  font-size:18px;
+  line-height: 20px;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  white-space: pre-wrap;
+}

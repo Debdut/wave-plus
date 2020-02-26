@@ -1,0 +1,25 @@
+{
+  "name": "wave-plus",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build-xhr": "webpack --config webpack/xhr_interceptor.js",
+    "build-content": "webpack --config webpack/content.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "html-loader": "^0.5.5",
+    "style-loader": "^1.0.0",
+    "to-string-loader": "^1.1.5",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  },
+  "dependencies": {
+    "xhook": "^1.4.9"
+  }
+}
