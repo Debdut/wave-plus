@@ -39,9 +39,23 @@ function Package (eye = '', bio = '', lv = '', rv = '') {
   } else {
     pack = ''
   }
-  if (!(pack.includes('SICS') || pack.includes('PHACO') || pack.includes('Sics') || pack.includes('Phaco') || pack.includes('DCT') || pack.includes('IOL'))) {
-    pack = ''
-  }
+
+  // const KEYWORDS_OT = [
+  //   'SICS',
+  //   'PHACO',
+  //   'DCT',
+  //   'VITRECTOMY'
+  //   ' OT',
+  //   ' O.T'
+  // ]
+
+  // const isOT = KEYWORDS_OT
+  //   .map((word) => pack.includes(word) || pack.includes(word.toLowerCase()))
+  //   .reduce((a, c) => a || c)
+
+  // if (!(isOT)) {
+  //   pack = ''
+  // }
 
   let price = document.querySelector('.invoice-preview__body > div > div.contemporary-template__items > table > tbody > tr > td:last-child span')
   if (price) {

@@ -69,7 +69,7 @@ function getPage() {
 const modes = {
   automate: true,
   surgery: true,
-  optics: true
+  // optics: true
 }
 
 function init() {

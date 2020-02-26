@@ -29,8 +29,46 @@ function Customer () {
   return getHTML(custCont)
 }
 
+function Package (eye = '', bio = '', lv = '', rv = '') {
+  let pack = document.querySelector('.invoice-preview__body > div > div.contemporary-template__items > table > tbody > tr > td:nth-child(1) > strong')
+  if (pack) {
+    pack = pack.innerText
+  } else {
+    pack = ''
+  }
+
+  let price = document.querySelector('.invoice-preview__body > div > div.contemporary-template__items > table > tbody > tr > td:last-child span')
+  if (price) {
+    price = price.innerText
+  }
+  if (price) {
+    pack = [pack, price].join(' ')
+  }
+
+  return `<div class="package">
+  <div class="label">Package</div>
+  <div class="contemporary-template__metadata__customer--billing">
+    <strong class="wv-text--strong">${pack}</strong>
+    <div class="desc">${eye} Eye</div>
+    ${(bio.length > 0) ? `<div class="desc">Biometry ${bio}</div>`: ''}
+    ${(lv.length > 0) ? `<div class="desc">Left Eye Vision ${lv}</div>`: ''}
+    ${(rv.length > 0) ? `<div class="desc">Right Eye Vision ${rv}</div>`: ''}
+  </div>
+</div>`
+}
+
 
 function template () {
+  const extra = document.querySelector('.contemporary-template__memo > span:nth-child(2)')
+  let data
+  if (extra) {
+    try {
+      data = parseData(extra.innerText)
+    } catch (error) {
+      data = {}
+    }
+  }
+
   const invoiceNum = document.querySelector('.invoice-template-details tbody > tr:nth-child(1) > td:nth-child(2) > span').innerText
   const idDiv = document.createElement('span')
   idDiv.innerText = invoiceNum
@@ -50,6 +88,7 @@ function template () {
 
       <div class="block grid">
         ${Customer()}
+        ${Package(data['Operative Eye'], data['Biometry'], data['Left Eye Vision'], data['Right Eye Vision'])}
       </div>
     </div>
     ${getHTML(idDiv)}
