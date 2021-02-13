@@ -1,3 +1,5 @@
-
+dist/content
+dist/inject
+dist/popup
 .DS_Store
-node_modules/
+**/node_modules/
