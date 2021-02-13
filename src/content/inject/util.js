@@ -44,3 +44,10 @@ export function snakeToTitle (text) {
     .map(w => capitalize(w))
     .join(' ')
 }
+
+export function removeNode (selector) {
+  const node = document.querySelector(selector)
+  if (node) {
+    node.remove()
+  }
+}

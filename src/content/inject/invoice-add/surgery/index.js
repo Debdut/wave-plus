@@ -45,8 +45,8 @@ function addOptions (selector) {
   optionsNode.className = '.surgery-options'
   optionsNode.style = 'padding-bottom: 10px;display:grid;grid-template-columns:1fr 1fr;'
 
-  optionsNode.appendChild(options(['Left', 'Right'], 'operative-eye'))
-  optionsNode.appendChild(options(['Apurba Samanta', 'Subhra Ghosal', 'Shibram Maji'], 'surgeon'))
+  optionsNode.appendChild(options('operative-eye', ['Left', 'Right']))
+  optionsNode.appendChild(options('surgeon', []))
   optionsNode.appendChild(input('biometry'))
   optionsNode.appendChild(input('addtional-details'))
   optionsNode.appendChild(input('left-eye-vision'))
@@ -55,7 +55,7 @@ function addOptions (selector) {
   referenceNode.parentNode.insertBefore(optionsNode, referenceNode.nextSibling)
 }
 
-function options (list, id) {
+function options (id, list) {
   register(id)
 
   const btnGroup = document.createElement('div')

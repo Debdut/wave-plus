@@ -129,6 +129,10 @@ function template () {
     }
   }
 
+  if (!data) {
+    data = {}
+  }
+
   const invoiceNum = document.querySelector('.invoice-template-details tbody > tr:nth-child(1) > td:nth-child(2) > span').innerText
   const idDiv = document.createElement('span')
   idDiv.innerText = invoiceNum

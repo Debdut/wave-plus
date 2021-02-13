@@ -34,10 +34,14 @@ function inject() {
 // Init
 // inject()
 
+import Global from './global'
+
 // Content Scripts by Page and Mode
 import invoiceAdd from './invoice-add'
 import invoiceView from './invoice-view'
 import invoiceList from './invoice-list'
+
+Global.init()
 
 const PagesRegex = {
   invoiceAdd: '^https://next.waveapps.com/.*/invoices/add$',
