@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "build-xhr": "webpack --config webpack/xhr_interceptor.js",
-    "build-content": "webpack --config webpack/content.js"
+    "build-content": "webpack --config webpack/content.js",
+    "build-popup": "cd popup && npm run build && cd .. && mv popup/build dist/popup"
   },
   "author": "",
   "license": "ISC",

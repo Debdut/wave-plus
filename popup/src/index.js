@@ -1,9 +1,24 @@
+import { Component } from 'preact'
+
+import Main from './main'
+import DataSource from './data-source'
+
 import './style'
 
-export default function App() {
-	return (
-		<div>
-			<h1>Hello, World!</h1>
-		</div>
-	)
+class App extends Component {
+	state = {
+		edit: false
+	}
+
+	toggle = () => {
+		this.setState(state => ({ edit: !state.edit }))
+	}
+
+	render (props, { edit }) {
+		if (edit) {
+			return <DataSource />
+		}
+
+		return <Main />
+	}
 }

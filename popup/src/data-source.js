@@ -27,6 +27,9 @@ class DataSource extends Component {
   render (props, state) {
     return (
       <form>
+        <button onClick={props.toggle}>Close</button>
+        <br/>
+
         <label>Doctor Details Spreadsheet</label>
         <input type='text' name='sheet_doc' value={state.sheet_doc} onInput={linkState(this, 'sheet_doc')}/>
         <br/>
