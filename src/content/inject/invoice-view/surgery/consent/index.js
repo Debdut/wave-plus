@@ -57,6 +57,20 @@ function Package (eye = '', bio = '', lv = '', rv = '') {
 </div>`
 }
 
+function parseData(str) {
+  const data = {}
+  const lines = str
+    .trim()
+    .split('\n')
+    .filter(l => l.length > 0)
+    .map(l => {
+      const parts = l.split(' - ')
+      const key = parts.shift()
+      const result = parts.join(' - ')
+      data[key] = result
+    })
+  return data
+}
 
 function template () {
   const extra = document.querySelector('.contemporary-template__memo > span:nth-child(2)')

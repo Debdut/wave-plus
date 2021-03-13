@@ -147,3 +147,9 @@
   border: 1px solid #dee1e2;
   font-weight: 300;
 }
+
+svg.signature {
+  width: 35px;
+  height: 35px;
+  padding-right: 20px;
+}

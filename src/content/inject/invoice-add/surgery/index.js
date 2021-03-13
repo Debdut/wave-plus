@@ -1,4 +1,5 @@
 import { executeOnCreate, capitalize, snakeToTitle } from '../../util'
+import Doctors from '../../doctors'
 
 function init() {
   executeOnCreate('.invoice-add__body__items', addOptions)
@@ -46,7 +47,7 @@ function addOptions (selector) {
   optionsNode.style = 'padding-bottom: 10px;display:grid;grid-template-columns:1fr 1fr;'
 
   optionsNode.appendChild(options('operative-eye', ['Left', 'Right']))
-  optionsNode.appendChild(options('surgeon', []))
+  optionsNode.appendChild(options('surgeon', Doctors.map(d => d.name)))
   optionsNode.appendChild(input('biometry'))
   optionsNode.appendChild(input('addtional-details'))
   optionsNode.appendChild(input('left-eye-vision'))

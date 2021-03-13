@@ -1,5 +1,7 @@
 import cssFile from './index.css'
 import { getHTML } from '../../../util'
+import Doctors from '../../../doctors'
+import Schedule from './schedule'
 
 function Header (title) {
   const header = document.querySelector('.contemporary-template__header__info').cloneNode(true)
@@ -77,13 +79,23 @@ function Package (eye = '', bio = '', lv = '', rv = '') {
 </div>`
 }
 
-function Doctor (doc = '') {
+function Doctor (docName) {
+  if (!docName) {
+    return `<div class="doctor">
+      <div class="label">Surgeon</div>
+    </div>`
+  }
+
+  const doctor = Doctors
+    .filter(d => d.name === docName)[0]
+  
   return `<div class="doctor">
-  <div class="label">Surgeon</div>
-  <div class="contemporary-template__metadata__customer--billing">
-    <strong class="wv-text--strong">${doc}</strong>
-  </div>
-</div>`
+    <div class="label">Surgeon</div>
+    ${doctor.signature}
+    <div class="contemporary-template__metadata__customer--billing">
+      <strong class="wv-text--strong">${doctor.name}</strong>
+    </div>
+  </div>`
 }
 
 function Notes () {
@@ -194,60 +206,25 @@ function Discharge () {
 
 export default Discharge
 
-const schedule = [
-  {
-    medicine: 'Abdrops PD / Gate PD',
-    times: 6,
-    days: 40
-  }, {
-    medicine: 'Tropicacyl Plus / TM Plus',
-    times: 2,
-    days: 10,
-    timing: '8AM 8PM'
-  }, {
-    medicine: 'Prednisolone 10 mg Tablet / Cefadrox 500 mg Tablet',
-    times: 2,
-    days: 5
-  }, {
-    medicine: 'Rantac Tablet 150mg Tablet',
-    times: 1,
-    days: 5
-  }, {
-    medicine: 'Becozyme C Forte Tablet',
-    times: 1,
-    days: 15,
-    timing: 'Bedtime'
-  }, {
-    medicine: 'Combiflam Tablet',
-    timing: 'SOS'
-  }, {
-    medicine: 'Carboxymethyl Cellulose Eye Drop',
-    times: 3
-  }, {
-    medicine: 'Nepafenac Eye Drop',
-    times: 3
-  }, 
-]
-
-const schedule_headers = ['Medicine', 'Times', 'Days', 'Timing']
-
 function MedTable () {
+  const headers = Object.keys(Schedule[0])
+
   return `<div class="table-container block">
   <div class="label">Medicine Schedule</div>
   <table class="wv-table">
       <thead>
         <tr>
-          ${schedule_headers.map(h => `<th>${h}</th>`).join('\n')}
+          ${headers.map(h => `<th>${h}</th>`).join('\n')}
         </tr>
       </thead>
       
       <tbody>
-        ${schedule.map(m => 
+        ${Schedule.map(m => 
         `<tr>
-          <td class="left-align bold">${m.medicine}</td>
-          <td class="middle-align">${m.times}</td>
-          <td>${m.days}</td>
-          <td>${m.timing}</td>
+          <td class="left-align bold">${m[headers[0]]}</td>
+          <td class="middle-align">${m[headers[1]]}</td>
+          <td>${m[headers[2]]}</td>
+          <td>${m[headers[3]]}</td>
         </tr>`).join('\n')}
       </tbody>
   </table>
