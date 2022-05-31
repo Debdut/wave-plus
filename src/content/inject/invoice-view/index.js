@@ -28,7 +28,7 @@ function quickPrint(selector, css) {
     .querySelector(selector)
     .cloneNode(true)
 
-  const invoiceNum = document.querySelector('.invoice-template-details tbody > tr:nth-child(1) > td:nth-child(2) > span').innerText
+  const invoiceNum = document.querySelector('.invoice-template-details tbody > tr:nth-child(1) > td:nth-child(2) > p').innerText
   const idDiv = document.createElement('span')
   idDiv.innerText = invoiceNum
   idDiv.style = 'font-size: 50px; font-weight: 700; position: absolute; top: 30px; left: calc(50%);padding:20px;border:2px solid #ddd;transform:translateX(-50%);'

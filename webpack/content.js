@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: "./src/content/inject/index.js",
   output: {
     path: path.resolve(__dirname, "..", "dist", "content"),

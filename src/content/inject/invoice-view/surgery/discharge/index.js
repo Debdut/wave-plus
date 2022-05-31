@@ -7,7 +7,7 @@ function Header (title) {
   const header = document.querySelector('.contemporary-template__header__info').cloneNode(true)
   header.childNodes[0].innerText = title
 
-  const dateSelect = document.querySelector('.invoice-preview__body > div > section.contemporary-template__metadata > div.invoice-template-details > table > tbody > tr:nth-child(3) > td:nth-child(2) > span')
+  const dateSelect = document.querySelector('.invoice-preview__body > div > section.contemporary-template__metadata > div.invoice-template-details > table > tbody > tr:nth-child(3) > td:nth-child(2) > p')
     .innerText
   const date = document.createElement('div')
   date.innerText = 'Operation Date' + ' ' + dateSelect
@@ -131,7 +131,7 @@ function parseData(str) {
 }
 
 function template () {
-  const extra = document.querySelector('.contemporary-template__memo > span:nth-child(2)')
+  const extra = document.querySelector('.contemporary-template__memo > p:nth-child(2)')
   let data
   if (extra) {
     try {
@@ -145,7 +145,7 @@ function template () {
     data = {}
   }
 
-  const invoiceNum = document.querySelector('.invoice-template-details tbody > tr:nth-child(1) > td:nth-child(2) > span').innerText
+  const invoiceNum = document.querySelector('.invoice-template-details tbody > tr:nth-child(1) > td:nth-child(2) > p').innerText
   const idDiv = document.createElement('span')
   idDiv.innerText = invoiceNum
   idDiv.style = 'font-size: 50px; font-weight: 700; position: absolute; top: 30px; left: calc(50%);padding:20px;border:2px solid #ddd;transform:translateX(-50%);'

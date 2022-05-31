@@ -210,7 +210,7 @@
   white-space: pre-line;
   word-wrap: break-word;
 }
-.contemporary-template__memo > span {
+.contemporary-template__memo > p {
   margin: 8px 0;
   display: block;
 }
