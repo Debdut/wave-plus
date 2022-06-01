@@ -5,6 +5,9 @@
   padding-bottom: 10px;
   color: #fff;
 }
+.wv-table{
+  width: 100%;
+}
 .wv-table__cell .middle-align {
   text-align: center;
 }
@@ -17,7 +20,6 @@
   padding: 16px;
   min-height: 1024px;
   box-sizing: border-box;
-  border: 1px solid #dee1e2;
   background: #fff;
 }
 .contemporary-template .wv-table__cell, .contemporary-template .wv-table__cell--amount, .contemporary-template .wv-text, .contemporary-template .wv-text--strong {
@@ -71,9 +73,10 @@
 }
 .contemporary-template .wv-table__row {
   border-bottom: inherit;
+  width: 100%
 }
 .contemporary-template .wv-table__row .wv-table__cell--nested {
-  color: #4c5357;
+  color: #000;
   font-size: 14px;
 }
 .contemporary-template__divider--bold .wv-divider {
@@ -143,6 +146,7 @@
 }
 .contemporary-template__metadata .invoice-template-details .wv-table__row:last-child {
   background: #f4f5f5;
+  /* border: 2px solid #000; */
 }
 .contemporary-template__metadata .invoice-template-details .wv-table__row:last-child .wv-table__cell {
   padding-top: 5px;
