@@ -16,9 +16,9 @@
     "css-loader": "^3.2.0",
     "html-loader": "^0.5.5",
     "style-loader": "^1.0.0",
-    "to-string-loader": "^1.1.5",
+    "to-string-loader": "^1.2.0",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "xhook": "^1.4.9"
