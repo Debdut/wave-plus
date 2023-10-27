@@ -13,20 +13,23 @@
   
   "action": {
     "default_icon": "icon/16.png",
-    "default_popup": "popup/index.html",
     "default_title": "Wave Plus"
   },
   "content_scripts": [
     {
       "matches": ["https://*.waveapps.com/*"],
-      "js": ["content/inject.js"]
+      "js": [
+        "content/util.js",
+        "content/constants.js",
+        "content/invoice-add.js",
+        "content/invoice-view.js",
+        "content/index.js"
+      ]
     }
   ],
 
   "web_accessible_resources": [{
     "resources": [
-      "vendor/*",
-      "inject/*",
       "img/*"
     ],
     "matches": ["https://*.waveapps.com/*"]

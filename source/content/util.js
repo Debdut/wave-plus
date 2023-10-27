@@ -1,8 +1,8 @@
-export function capitalize (word) {
+function capitalize (word) {
   return word.charAt(0).toUpperCase() + word.slice(1)
 }
 
-export function execute (exes, modes) {
+function execute (exes, modes) {
   for(const mode in modes) {
     if (modes.hasOwnProperty(mode)) {
       if (modes[mode]) {
@@ -15,7 +15,7 @@ export function execute (exes, modes) {
   }
 }
 
-export function print (item, type) {
+function print (item, type) {
   const p = item
     .split(/(?=[A-Z])/)
     .map(word => capitalize(word))
@@ -23,7 +23,7 @@ export function print (item, type) {
  console.log(`[Entered ${capitalize(type)} ${p}]`)
 }
 
-export function executeOnCreate (selector, f, ...args) {
+function executeOnCreate (selector, f, ...args) {
   let element = document.querySelector(selector)
   if (element) {
     f(selector, ...args)
@@ -32,22 +32,49 @@ export function executeOnCreate (selector, f, ...args) {
   }
 }
 
-export function getHTML (node) {
+function getHTML (node) {
   const parent = document.createElement('div')
   parent.appendChild(node)
   return parent.innerHTML
 }
 
-export function snakeToTitle (text) {
+function snakeToTitle (text) {
   return text
     .split('-')
     .map(w => capitalize(w))
     .join(' ')
 }
 
-export function removeNode (selector) {
+function removeNode (selector) {
   const node = document.querySelector(selector)
   if (node) {
     node.remove()
   }
+}
+
+function objectToString (obj) {
+  let str = ''
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (obj[key]) {
+        str = str + snakeToTitle(key) + ' - ' + obj[key] + '\n'
+      }
+    }
+  }
+  return str
+}
+
+function parseData(str) {
+  const data = {}
+  const lines = str
+    .trim()
+    .split('\n')
+    .filter(l => l.length > 0)
+    .map(l => {
+      const parts = l.split(' - ')
+      const key = parts.shift()
+      const result = parts.join(' - ')
+      data[key] = result
+    })
+  return data
 }
