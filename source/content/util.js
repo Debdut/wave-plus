@@ -15,7 +15,7 @@ function execute (exes, modes) {
   }
 }
 
-function print (item, type) {
+function logger (item, type) {
   const p = item
     .split(/(?=[A-Z])/)
     .map(word => capitalize(word))
@@ -77,4 +77,29 @@ function parseData(str) {
       data[key] = result
     })
   return data
+}
+
+function stripStyles(htmlElement) {
+  if (htmlElement instanceof HTMLElement) {
+    htmlElement.style = ''; // Clear the style attribute
+    for (let i = 0; i < htmlElement.children.length; i++) {
+      stripStyles(htmlElement.children[i]); // Recursively strip styles from child elements
+    }
+  }
+}
+
+function removeAndMergeParagraphs(node) {
+  if (node instanceof HTMLElement) {
+    // Get all <p> elements within the provided node
+    const paragraphs = node.querySelectorAll('p');
+
+    paragraphs.forEach(paragraph => {
+      // Get the text content of the <p> element
+      const text = paragraph.textContent;
+
+      // Replace the <p> element with a text node containing the text content
+      const textNode = document.createTextNode(text);
+      paragraph.parentNode.replaceChild(textNode, paragraph);
+    });
+  }
 }

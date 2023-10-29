@@ -33,7 +33,7 @@ class Discharge {
     const header = document.querySelector('.contemporary-template__header__info').cloneNode(true)
     header.childNodes[0].innerText = title
 
-    const dateSelect = document.querySelector('.invoice-preview__body > div > section.contemporary-template__metadata > div.invoice-template-details > table > tbody > tr:nth-child(3) > td:nth-child(2) > p')
+    const dateSelect = document.querySelector('.invoice-preview__body section.contemporary-template__metadata > div.invoice-template-details > table > tbody > tr:nth-child(3) > td:nth-child(2) > p')
       .innerText
     const date = document.createElement('div')
     date.innerText = 'Operation Date' + ' ' + dateSelect
@@ -61,7 +61,7 @@ class Discharge {
   }
 
   static Package (eye = '', bio = '', lv = '', rv = '') {
-    let pack = document.querySelector('.invoice-preview__body > div > div.contemporary-template__items > table > tbody > tr > td:nth-child(1) > strong')
+    let pack = document.querySelector('.invoice-preview__body div.contemporary-template__items > table > tbody > tr > td:nth-child(1) > strong')
     if (pack) {
       pack = pack.innerText
     } else {
@@ -85,7 +85,7 @@ class Discharge {
     //   pack = ''
     // }
 
-    let price = document.querySelector('.invoice-preview__body > div > div.contemporary-template__items > table > tbody > tr > td:last-child span')
+    let price = document.querySelector('.invoice-preview__body div.contemporary-template__items > table > tbody > tr > td:last-child span')
     if (price) {
       price = price.innerText
     }
@@ -125,7 +125,7 @@ class Discharge {
   }
 
   static Notes () {
-    const pack = document.querySelector('#Content > div > div.wv-frame__wrapper > div.wv-frame__content > div.wv-frame__content__body > div.wv-frame__content__body__main > div > div > div.invoice-view__body > div.invoice-preview > div.invoice-preview__body > div > div.contemporary-template__items > table > tbody > tr > td:nth-child(1) > strong')
+    const pack = document.querySelector('#Content > div > div.wv-frame__wrapper > div.wv-frame__content > div.wv-frame__content__body > div.wv-frame__content__body__main > div > div > div.invoice-view__body > div.invoice-preview > div.invoice-preview__body div.contemporary-template__items > table > tbody > tr > td:nth-child(1) > strong')
       .innerText
     let rest = ''
     if (pack.includes('SICS') || pack.includes('Sics')) {
@@ -221,7 +221,6 @@ class Discharge {
   }
   .contemporary-template .wv-heading--subtitle {
     word-wrap: break-word;
-    color: gray;
     font-size: 18px;
     margin-top: 0;
     line-height: 22px;
@@ -234,7 +233,7 @@ class Discharge {
   }
 
   .block {
-    border: 1px solid #dee1e2 ;
+    border: 1px solid #000 ;
     padding: 20px;
     border-radius: 10px;
     margin-top: 10px;
@@ -346,6 +345,9 @@ class Discharge {
     height: 35px;
     padding-right: 20px;
   }
+  p {
+    margin: 2px;
+  }
   `
 
   static generate () {
@@ -397,13 +399,13 @@ class Discharge {
   </div>`
   }
 
-  fields = ['RDSPH', 'DCYL ', 'AXIS ', ' VA ', 'LDSPH', 'DCYL ', 'AXIS ', ' VA ']
+  static fields = ['RDSPH', 'DCYL ', 'AXIS ', ' VA ', 'LDSPH', 'DCYL ', 'AXIS ', ' VA ']
 
   static InfoTable () {
     return `<table class="other-table">
     <thead>
       <tr>
-        ${fields.map(f => 
+        ${Discharge.fields.map(f => 
         `<th>${f}</th>`)
         .join('\n')}
       </tr>
@@ -411,7 +413,7 @@ class Discharge {
     <tbody>
     ${[1,2].map(i => 
       `<tr>
-        ${fields.map(f => 
+        ${Discharge.fields.map(f => 
         `<td>&nbsp;</td>`)
         .join('\n')}
       </tr>`).join('\n')}
@@ -425,7 +427,7 @@ class Consent {
     const header = document.querySelector('.contemporary-template__header__info').cloneNode(true)
     header.childNodes[0].innerText = title
 
-    const dateSelect = document.querySelector('.invoice-preview__body > div > section.contemporary-template__metadata > div.invoice-template-details > table > tbody > tr:nth-child(3) > td:nth-child(2) > p')
+    const dateSelect = document.querySelector('.invoice-preview__body section.contemporary-template__metadata > div.invoice-template-details > table > tbody > tr:nth-child(3) > td:nth-child(2) > p')
       .innerText
     const date = document.createElement('div')
     date.innerText = 'Operation Date' + ' ' + dateSelect
@@ -450,14 +452,14 @@ class Consent {
   }
 
   static Package (eye = '', bio = '', lv = '', rv = '') {
-    let pack = document.querySelector('.invoice-preview__body > div > div.contemporary-template__items > table > tbody > tr > td:nth-child(1) > strong')
+    let pack = document.querySelector('.invoice-preview__body div.contemporary-template__items > table > tbody > tr > td:nth-child(1) > strong')
     if (pack) {
       pack = pack.innerText
     } else {
       pack = ''
     }
 
-    let price = document.querySelector('.invoice-preview__body > div > div.contemporary-template__items > table > tbody > tr > td:last-child span')
+    let price = document.querySelector('.invoice-preview__body div.contemporary-template__items > table > tbody > tr > td:last-child span')
     if (price) {
       price = price.innerText
     }
@@ -477,7 +479,7 @@ class Consent {
   </div>`
   }
 
-  template () {
+  static template () {
     const extra = document.querySelector('.contemporary-template__memo > p:nth-child(2)')
     let data
     if (extra) {
@@ -545,7 +547,6 @@ class Consent {
   }
   .contemporary-template .wv-heading--subtitle {
     word-wrap: break-word;
-    color: gray;
     font-size: 18px;
     margin-top: 0;
     line-height: 22px;
@@ -663,6 +664,10 @@ class Consent {
     border: 1px solid #dee1e2;
     font-weight: 300;
   }
+
+  p {
+    margin: 2px;
+  }
   `
   static generate () {
     const css = Consent.CSS
@@ -677,7 +682,7 @@ class Consent {
       style.appendChild(document.createTextNode(css))
     }
 
-    body.innerHTML = template()
+    body.innerHTML = Consent.template()
 
     head.appendChild(style)
     html.appendChild(head)
@@ -696,7 +701,7 @@ class SurgeryView {
 
     printWindow.document.querySelector('img').onload = function() {
       printWindow.print()
-      printWindow.close()
+      // printWindow.close()
     }
 
     const printWindow2 = window.open('', '', 'width=900,height=650')
@@ -706,7 +711,7 @@ class SurgeryView {
 
     printWindow2.document.querySelector('img').onload = function() {
       printWindow2.print()
-      printWindow2.close()
+      // printWindow2.close()
     }
   }
 
@@ -732,32 +737,39 @@ class InvoiceView {
 
   static specific () {
     const printCss = `
+    .contemporary-template__items table {
+      border-collapse: collapse;
+    }
+    
+    .contemporary-template__items table, .contemporary-template__items th, .contemporary-template__items td {
+      border: 1px solid black;
+    }
+
+    .contemporary-template__items th, .contemporary-template__items td {
+      padding: 10px 0px;
+    }
+
     .contemporary-template .wv-table__header .wv-table__cell, .contemporary-template .wv-table__header .wv-table__cell--amount {
       text-transform: inherit;
       font-weight: 600;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      color: #fff;
+      color: #000;
     }
     .wv-table{
       width: 100%;
-    }
-    .wv-table__cell .middle-align {
-      text-align: center;
     }
     .contemporary-template, .contemporary-template .wv-heading--subtitle, .contemporary-template .wv-heading--title, .contemporary-template .wv-table__cell, .contemporary-template .wv-table__cell--amount, .contemporary-template .wv-text, .contemporary-template .wv-text--strong {
       font-family: Helvetica, Arial, sans-serif;
     }
     .contemporary-template {
-      font-size: 16px;
+      font-size: 20px;
       position: relative;
-      padding: 16px;
       min-height: 1024px;
       box-sizing: border-box;
       background: #fff;
+      color: #000;
     }
     .contemporary-template .wv-table__cell, .contemporary-template .wv-table__cell--amount, .contemporary-template .wv-text, .contemporary-template .wv-text--strong {
-      font-size: 16px;
+      font-size: 20px;
     }
     .contemporary-template .wv-heading--title {
       margin-top: 0;
@@ -766,20 +778,18 @@ class InvoiceView {
       font-weight: 300;
     }
     .contemporary-template .wv-heading--subtitle {
-      word-wrap: break-word;
-      color: gray;
-      font-size: 16px;
-      margin-top: 0;
+      font-size: 20px;
       line-height: 20px;
     }
     .contemporary-template .address {
-      margin-top: 10px;
+      margin-top: 20px;
     }
-    .contemporary-template .address__field .wv-text {
-      line-height: 20px;
+
+    .contemporary-template__header__info strong.wv-text--strong {
+      font-size: 24px;
     }
     .contemporary-template .wv-table, .contemporary-template .wv-text {
-      font-size: 16px;
+      font-size: 20px;
     }
     .contemporary-template .wv-table__cell {
       padding-left: 15px;
@@ -811,19 +821,10 @@ class InvoiceView {
     }
     .contemporary-template .wv-table__row .wv-table__cell--nested {
       color: #000;
-      font-size: 14px;
+      font-size: 18px;
     }
-    .contemporary-template__divider--bold .wv-divider {
-      border-width: 3px;
-      margin-top: 0;
-      margin-bottom: 16px;
-    }
-    .contemporary-template__divider--small-margin .wv-divider {
-      margin: 12px auto;
-    }
-    .contemporary-template__divider--full-width .wv-divider {
-      margin-left: -16px;
-      margin-right: -16px;
+    .invoice-template-details {
+      margin-top: 20px;
     }
     .contemporary-template__header {
       display: flex;
@@ -842,6 +843,7 @@ class InvoiceView {
       min-width: 125px;
     }
     .contemporary-template__metadata {
+      margin-top: 10px;
       margin-left: 14px;
       margin-right: -16px;
       display: flex;
@@ -862,25 +864,11 @@ class InvoiceView {
       flex-grow: 3;
       padding-right: 10px;
     }
-    .contemporary-template__metadata .invoice-template-details {
-      margin-top: -5px;
-    }
-    .contemporary-template__metadata .invoice-template-details .wv-table__row:hover {
-      background: none;
-    }
-    .contemporary-template__metadata .invoice-template-details .wv-table__cell {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
     .contemporary-template__metadata .invoice-template-details .wv-table__cell:first-child {
       text-align: right;
     }
     .contemporary-template__metadata .invoice-template-details .wv-table__cell:last-child {
       padding-left: 0;
-    }
-    .contemporary-template__metadata .invoice-template-details .wv-table__row:last-child {
-      background: #f4f5f5;
-      /* border: 2px solid #000; */
     }
     .contemporary-template__metadata .invoice-template-details .wv-table__row:last-child .wv-table__cell {
       padding-top: 5px;
@@ -894,18 +882,18 @@ class InvoiceView {
       font-weight: 600;
     }
     .contemporary-template__metadata .wv-text--body {
-      font-size:18px;
+      font-size:22px;
       line-height: 22px;
     }
     .contemporary-template__metadata .wv-text--strong {
-      font-size:18px;
+      font-size:22px;
       line-height: 22px;
     }
-    .contemporary-template__metadata {
-      margin-top: 20px;
+    .contemporary-template__metadata__customer.fs-exclude {
+      margin-top: -20px;
     }
     .contemporary-template__items {
-      margin-top: 26px;
+      margin-top: 10px;
       margin-right: -16px;
       margin-left: -16px;
     }
@@ -914,7 +902,6 @@ class InvoiceView {
     }
     .contemporary-template__totals {
       display: flex;
-      margin-bottom: 35px;
       margin-left: -16px;
       margin-right: -16px;
     }
@@ -937,11 +924,10 @@ class InvoiceView {
       min-width: 125px;
     }
     .contemporary-template__totals__amounts__line .wv-text--strong {
-      font-size: 18px;
+      font-size: 22px;
     }
     .contemporary-template__totals__amounts__line .wv-text.wv-text--body {
-      font-size: 18px;
-      line-height: 22px;
+      font-size: 22px;
     }
     .contemporary-template__memo {
       margin: 0 14px 35px;
@@ -953,15 +939,21 @@ class InvoiceView {
       display: block;
     }
     .contemporary-template__footer .wv-text.wv-text--hint {
-      margin: 0 14px 15px;
+      margin: 0 auto;
       text-align: center;
-      font-size:18px;
+      font-size:16px;
       line-height: 20px;
       position: absolute;
-      bottom: 10px;
+      bottom: 0px;
       left: 0;
       right: 0;
       white-space: pre-wrap;
+    }
+    p.wv-text.wv-text--hint {
+      margin: 0;
+    }
+    .address p {
+      margin: 6px;
     }`
     executeOnCreate('.wv-header__actions', InvoiceView.createPrintButton, printCss)
   }
@@ -971,10 +963,15 @@ class InvoiceView {
       .querySelector(selector)
       .cloneNode(true)
 
+    stripStyles(section)
+    section.querySelector("br").remove()
+    section.querySelector(".contemporary-template__divider--full-width.contemporary-template__divider--bold").remove()
+    // removeAndMergeParagraphs(section.querySelector(".address"))
+
     const invoiceNum = document.querySelector('.invoice-template-details tbody > tr:nth-child(1) > td:nth-child(2) > p').innerText
     const idDiv = document.createElement('span')
     idDiv.innerText = invoiceNum
-    idDiv.style = 'font-size: 50px; font-weight: 700; position: absolute; top: 30px; left: calc(50%);padding:20px;border:2px solid #ddd;transform:translateX(-50%);'
+    idDiv.style = 'font-size: 50px; font-weight: 700; position: absolute; top: 30px; left: calc(40%);padding:20px;border:2px solid #000;transform:translateX(-50%);'
 
     const pic = document.querySelector('img')
     pic.src = chrome.runtime.getURL('img/logo.jpg')
@@ -1029,7 +1026,7 @@ class InvoiceView {
 
   static init() {
     InvoiceView.specific()
-    print("Invoice View", 'page')
+    logger("Invoice View", 'page')
 
     AutomateView.init()
     SurgeryView.init()

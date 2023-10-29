@@ -114,7 +114,7 @@ class AutomateAdd {
 class InvoiceAdd {
 
   static init() {
-    print("Invoice Add", 'page')
+    logger("Invoice Add", 'page')
     
     AutomateAdd.init()
     SurgeryAdd.init()
