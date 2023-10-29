@@ -701,7 +701,7 @@ class SurgeryView {
 
     printWindow.document.querySelector('img').onload = function() {
       printWindow.print()
-      // printWindow.close()
+      printWindow.close()
     }
 
     const printWindow2 = window.open('', '', 'width=900,height=650')
@@ -711,7 +711,7 @@ class SurgeryView {
 
     printWindow2.document.querySelector('img').onload = function() {
       printWindow2.print()
-      // printWindow2.close()
+      printWindow2.close()
     }
   }
 
@@ -1007,7 +1007,7 @@ class InvoiceView {
 
     printWindow.document.querySelector('img').onload = function() {
       printWindow.print()
-      // printWindow.close()
+      printWindow.close()
     }
   }
 
