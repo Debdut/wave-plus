@@ -19,7 +19,7 @@ class SurgeryAdd {
     SurgeryAdd.dataPoints[key] = data
     const textArea = document.querySelector('.invoice-memo .wv-textarea')
     if (textArea) {
-      textArea.value = objectToString(dataPoints)
+      textArea.value = objectToString(SurgeryAdd.dataPoints)
     }
   }
 
@@ -59,7 +59,7 @@ class SurgeryAdd {
       btnGroup.appendChild(btn)
 
       btn.addEventListener('click', () => {
-        reactChange(op, id)
+        SurgeryAdd.reactChange(op, id)
         const selectedBtn = document.querySelector(`#${id} .wv-button--primary`)
         if (selectedBtn) {
           selectedBtn.className = 'wv-button--secondary'
@@ -86,25 +86,26 @@ class SurgeryAdd {
     inp.className = 'wv-input wv-input'
     inputGroup.appendChild(inp)
 
-    inp.addEventListener('keyup', () => reactChange(inp.value, id))
+    inp.addEventListener('keyup', () => SurgeryAdd.reactChange(inp.value, id))
     return inputGroup
   }
 }
 
 class AutomateAdd {
   static init() {
-    executeOnCreate('.invoice-customer__without-customer__box__button', SurgeryAdd.addCustomer)
+    executeOnCreate('.invoice-customer__without-customer__box__button', AutomateAdd.addCustomer)
   }
 
   // Automate Add Customer and Focus
   static addCustomer (selector) {
     const btn = document.querySelector(selector)
     btn.click()
-    executeOnCreate ('.invoice-customer__without-customer__box .wv-select__footer', function (s) {
+    executeOnCreate ('.invoice-add__body__top-form__customer .wv-select__footer > span', function (s) {
       const btnNext = document.querySelector(s)
       btnNext.click()
-      executeOnCreate('.invoice-add__body__top-form__customer  .wv-form-field.is-required input', function(s0) {
+      executeOnCreate('#customer-modal-tabs-panel-0 .wv-form-field input', function(s0) {
         const inp = document.querySelector(s0)
+        console.log(inp)
         inp.focus()
       })
     })
