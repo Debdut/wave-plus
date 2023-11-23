@@ -161,9 +161,9 @@ class Discharge {
     idDiv.innerText = invoiceNum
     idDiv.style = 'font-size: 50px; font-weight: 700; position: absolute; top: 30px; left: calc(50%);padding:20px;border:2px solid #ddd;transform:translateX(-50%);'
 
-    const pic = document.querySelector('img')
+    const pic = document.createElement('img')
     pic.src = chrome.runtime.getURL('img/logo.jpg')
-    pic.style = 'height:200px;border-radius:10px;'
+    pic.style = 'height:150px;border-radius:10px;'
 
     const picContainer = document.createElement('div')
     picContainer.appendChild(pic)
@@ -495,9 +495,9 @@ class Consent {
     idDiv.innerText = invoiceNum
     idDiv.style = 'font-size: 50px; font-weight: 700; position: absolute; top: 30px; left: calc(50%);padding:20px;border:2px solid #ddd;transform:translateX(-50%);'
 
-    const pic = document.querySelector('img')
+    const pic = document.createElement('img')
     pic.src = chrome.runtime.getURL('img/logo.jpg')
-    pic.style = 'height:200px;border-radius:10px;'
+    pic.style = 'height:150px;border-radius:10px;'
 
     const picContainer = document.createElement('div')
     picContainer.appendChild(pic)
@@ -728,7 +728,6 @@ class SurgeryView {
   }
 
   static init () {
-    console.log('Surgery View')
     executeOnCreate('.wv-header__actions', SurgeryView.createPrintButton,)
   }
 }
@@ -973,9 +972,9 @@ class InvoiceView {
     idDiv.innerText = invoiceNum
     idDiv.style = 'font-size: 50px; font-weight: 700; position: absolute; top: 30px; left: calc(40%);padding:20px;border:2px solid #000;transform:translateX(-50%);'
 
-    const pic = document.querySelector('img')
+    const pic = document.createElement('img')
     pic.src = chrome.runtime.getURL('img/logo.jpg')
-    pic.style = 'height:200px;border-radius:10px;'
+    pic.style = 'height:150px;border-radius:10px;'
 
     const picContainer = document.createElement('div')
     picContainer.appendChild(pic)

@@ -23,24 +23,7 @@ class Global {
     return
   }
 
-// Demo Mode Change With Chrome Storage
-  static modes = {
-    automate: true,
-    surgery: true
-  }
-
-  static init() {
-    executeOnCreate('.wv-notify--info.row-warning-notif', removeNode)
-    let url = location.href
-    document.body.addEventListener('click', () => {
-        requestAnimationFrame(() => {
-          if (url !== location.href) {
-            Global.init()
-          }
-          url = location.href
-        })
-    }, true)
-
+  static execute() {
     const page = Global.getPage()
 
     if (page === "InvoiceAdd") {
@@ -49,6 +32,19 @@ class Global {
       InvoiceView.init()
     }
   }
+
+  static init() {
+    executeOnCreateForever('.wv-notify--info.row-warning-notif', removeNode)
+    onURLChange()
+    chrome.storage.onChanged.addListener(function(changes, namespace) {
+      for (var key in changes) {
+        if (key === 'location') {
+          Global.execute()
+        }
+      }
+    });  
+  }
 }
 
+chrome.storage.sync.set({location: location.href})
 Global.init()

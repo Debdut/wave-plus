@@ -35,6 +35,8 @@
     "matches": ["https://*.waveapps.com/*"]
   }],
 
-  "permissions": []
+  "permissions": [
+    "storage"
+  ]
 
 }

@@ -28,8 +28,16 @@ function executeOnCreate (selector, f, ...args) {
   if (element) {
     f(selector, ...args)
   } else {
-    setTimeout(() => executeOnCreate(selector, f, ...args), 50)
+    setTimeout(() => executeOnCreate(selector, f, ...args), 100)
   }
+}
+
+function executeOnCreateForever (selector, f, ...args) {
+  let element = document.querySelector(selector)
+  if (element) {
+    f(selector, ...args)
+  }
+  setTimeout(() => executeOnCreate(selector, f, ...args), 200)
 }
 
 function getHTML (node) {
@@ -102,4 +110,50 @@ function removeAndMergeParagraphs(node) {
       paragraph.parentNode.replaceChild(textNode, paragraph);
     });
   }
+}
+
+function throttle(callback, delay) {
+  let lastCallTime = 0;
+
+  return function (...args) {
+      const now = new Date().getTime();
+
+      if (now - lastCallTime >= delay) {
+          callback.apply(null, args);
+          lastCallTime = now;
+      }
+  };
+}
+
+function onURLChange() {
+  const handleMutation = throttle((mutations) => {
+    // Your code to handle DOM mutations
+    chrome.storage.sync.get(["location"], function(items) {
+      let previousUrl = items.location
+      if (location.href !== previousUrl) {
+        chrome.storage.sync.set({location: location.href})
+      }
+    });
+}, 100);
+  const observer = new MutationObserver(handleMutation)
+  const config = {subtree: true, childList: true}
+  observer.observe(document, config)
+}
+
+function addWavePlusInvisibleSignatureToDom () {
+  const signature = document.createElement('div')
+  signature.id = 'waveplus-invisible-signature'
+  signature.style = 'display:none;'
+  document.body.appendChild(signature)
+}
+
+function checkForWavePlusInvisibleSignature () {
+  const signature = document.querySelector('#waveplus-invisible-signature')
+  if (!signature) {
+    addWavePlusInvisibleSignatureToDom()
+  }
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }

@@ -26,6 +26,10 @@ class SurgeryAdd {
   static addOptions (selector) {
     const referenceNode = document.querySelector(selector)
     
+    if (referenceNode.querySelector('.surgery-options')) {
+      return
+    }
+
     const optionsNode = document.createElement('div')
     optionsNode.className = '.surgery-options'
     optionsNode.style = 'padding-bottom: 10px;display:grid;grid-template-columns:1fr 1fr;'
@@ -105,7 +109,6 @@ class AutomateAdd {
       btnNext.click()
       executeOnCreate('#customer-modal-tabs-panel-0 .wv-form-field input', function(s0) {
         const inp = document.querySelector(s0)
-        console.log(inp)
         inp.focus()
       })
     })
@@ -116,7 +119,6 @@ class InvoiceAdd {
 
   static init() {
     logger("Invoice Add", 'page')
-    
     AutomateAdd.init()
     SurgeryAdd.init()
   }
