@@ -341,8 +341,8 @@ class Discharge {
   }
 
   svg.signature {
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 50px;
     padding-right: 20px;
   }
   p {
